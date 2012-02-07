@@ -22,6 +22,7 @@ LOCAL_SRC_FILES:= \
 LOCAL_MODULE:= libtinyxml
 
 LOCAL_CFLAGS+= $(TOOL_CFLAGS)
+
 LOCAL_LDFLAGS:= $(TOOL_LDFLAGS) -lstdc++ -lc
 
 include $(BUILD_HOST_STATIC_LIBRARY)
@@ -29,13 +30,14 @@ include $(BUILD_HOST_STATIC_LIBRARY)
 
 # For the device
 # =====================================================
-#include $(CLEAR_VARS)
+include $(CLEAR_VARS)
 #
-#LOCAL_SRC_FILES:= \
-#	$(commonSources)
-#
-#LOCAL_MODULE:= libtinyxml
-#
-#include $(BUILD_SHARED_LIBRARY)
+LOCAL_SRC_FILES := $(commonSources)
+
+LOCAL_MODULE_TAGS := optional
+
+LOCAL_MODULE := libtinyxml
+
+include $(BUILD_SHARED_LIBRARY)
 
 
